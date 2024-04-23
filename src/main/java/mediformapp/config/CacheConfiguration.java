@@ -50,6 +50,16 @@ public class CacheConfiguration {
             createCache(cm, mediformapp.domain.User.class.getName());
             createCache(cm, mediformapp.domain.Authority.class.getName());
             createCache(cm, mediformapp.domain.User.class.getName() + ".authorities");
+            createCache(cm, mediformapp.domain.Login.class.getName());
+            createCache(cm, mediformapp.domain.Parent.class.getName());
+            createCache(cm, mediformapp.domain.Parent.class.getName() + ".children");
+            createCache(cm, mediformapp.domain.Child.class.getName());
+            createCache(cm, mediformapp.domain.Child.class.getName() + ".formStatuses");
+            createCache(cm, mediformapp.domain.ChildVisits.class.getName());
+            createCache(cm, mediformapp.domain.TemplateForm.class.getName());
+            createCache(cm, mediformapp.domain.SavedForms.class.getName());
+            createCache(cm, mediformapp.domain.ChildData.class.getName());
+            createCache(cm, mediformapp.domain.FormStatus.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }
