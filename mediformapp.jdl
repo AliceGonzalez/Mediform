@@ -1,0 +1,63 @@
+entity Login {
+  username String,
+  password String
+}
+
+entity Parent {
+  parentID Integer,
+  name String,
+  lastName String
+}
+
+entity Child {
+  childID Integer,
+  name String,
+  lastName String,
+  dob LocalDate,
+}
+
+entity ChildVisits {
+  visitID Integer,
+  visitType String,
+  visitDate LocalDate
+}
+
+entity TemplateForm {
+  templateFormID Integer,
+  formType String
+}
+
+entity SavedForms {
+  savedFormID Integer,
+  formID Integer,
+  formType String
+}
+
+entity ChildData {
+  childDataID Integer,
+  name String,
+  lastName String,
+  dob LocalDate
+}
+
+entity FormStatus {
+  formStatusID Integer,
+  status String
+}
+
+relationship OneToOne {
+  Login{parentID} to Parent{login},
+  ChildData{child} to Child
+}
+
+relationship OneToMany {
+  Parent{child} to Child{parent},
+  Child{formStatus} to FormStatus{child}
+}
+
+relationship ManyToOne {
+  ChildVisits{child} to Child,
+  SavedForms{child} to Child,
+  FormStatus{templateForm} to TemplateForm,
+  SavedForms{templateForm} to TemplateForm
+}
